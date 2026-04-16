@@ -1,35 +1,47 @@
-# Desenvolvimento do Site Grupo Baragão
+# Walkthrough Final - Grupo Baragão (baragao.magistertech.com.br)
 
-O site foi construído seguindo fielmente as descrições de Design, Estrutura, SEO, Responsividade e Funcionalidades Técnicas.
+O site foi desenvolvido com estética **Premium/Criativa**, configurado para deploy em VPS e integrado com **GitHub Actions** para automação total.
 
-## Tecnologias e Setup
-- **Vite + React:** Setup rápido e build ultra-otimizada.
-- **Wouter:** Sistema de rotas minimalista e performático usado para gerenciar as páginas `Home`, `Quem Somos`, `Veículos`, `Shineray` e `Consórcios`.
-- **Vanilla CSS:** Arquitetura de design system toda implementada em `index.css` via variáveis CSS (CSS Tokens) visando alta customização sem acoplar complexidade.
-- **Lucide React:** Usada para todos os ícones necessários exigidos na doc (Shield, Coração, Telefones, Setas).
-- **SEO & Meta Tags:** Completamente inseridas em `index.html` e formatadas conforme as práticas requeridas na Documentação (OpenGraph, Title, Keywords, Canonical).
+## 🎨 Resultado Visual
+- **Design:** Glassmorphism, tipografia Playfair Display/Outfit, e logos oficiais integradas.
+- **Funcionalidades:** Hero carrossel dinâmico, seções de unidades reformuladas e navegação cruzada.
 
-## Páginas Criadas
-1. **Home (`/`)**: Implementamos o carousel customizado com auto-play (setInterval), timeout de 5 segundos, pausa ao passar o mouse, botões e indicadores (dots). Múltiplas sub-seções mostrando o Ecossistema, 5 Pilares e Depoimentos.
-2. **Quem Somos (`/quem-somos`)**: Uma landpage simples de História, abordando a missão e visão da empresa.
-3. **Baragão Veículos (`/veiculos`)**: Exibindo os pontos chave e linkando dinamicamente via "crosss-links" para as demais unidades.
-4. **Shineray Tarumã (`/shineray`)**: Exibindo os pontos chave e foco em mobilidade para clientes.
-5. **Baragão Consórcios (`/consorcios`)**: Refletindo inteligência financeira, links de call to actions direcionados.
+## 🚀 Infraestrutura de Deploy
+Implementamos um ecossistema de deploy em duas camadas:
 
-## Diferenciais Inclusos
-- **Botões Dinâmicos e WhatsApp Genérico:** Um CTA fixo no rodapé disparando a animação pulsar em CSS.
-- **Transições (`Fade in / Slide in`):** Implementados em todas as sub-seções garantindo uma excelente conversão e design com sensação "Premium".
-- **Design Tokens:** Esquema primário (#0a2463) e de acento (#e74c3c) mantendo paletas totalmente integradas.
+### 1. Deploy Local (Safe Deploy)
+- **Arquivo:** [Deploy-Baragao.ps1](file:///c:/Users/Danie/OneDrive/Desktop/JARVIS-WORKSPACE/Deploy-Baragao.ps1)
+- **Status:** Testado. O upload do pacote `baragao_deploy.tar.gz` para a VPS foi concluído com sucesso.
 
-## Testes Realizados
-- Build completo (100% de compilação livre de erros via Vite).
-- Correção de injeção de dependências nativas (Troca de ícones falhos do Facebook e Instagram para injeções em formato SVG para eliminar errors no ES-Lint / Vite Build).
+### 2. Automação CI/CD (GitHub Actions)
+- **Repositório:** `https://github.com/danielborgesjos-svg/baragao1.git`
+- **Workflow:** [.github/workflows/deploy.yml](file:///c:/Users/Danie/OneDrive/Desktop/JARVIS-WORKSPACE/baragao-site/.github/workflows/deploy.yml)
+- **O que faz:** Ao dar `git push`, o GitHub faz o build e joga os arquivos diretamente na pasta web da VPS, reiniciando o Nginx automaticamente.
 
-**Status:** Pronto para o deploy na VPS.
+## 🛠️ Próximos Passos (Ação do Operador)
 
-## Evidências Visuais
-### Screenshot da Home Page
-![Home Page do Grupo Baragão](C:/Users/Danie/.gemini/antigravity/brain/45002cf1-81e6-4e46-9460-32760b517a6e/home_page_top_1776363204893.png)
+### A. Finalizar Instalação na VPS
+Como você já enviou o arquivo via PowerShell, rode estes comandos na VPS para ativar o domínio agora:
+```bash
+ssh root@187.127.11.172
+cd /opt
+tar -xzf baragao_deploy.tar.gz
+bash setup-baragao-vps.sh
+```
+*Use a senha que você me forneceu para o acesso.*
 
-### Gravação da Verificação de Navegação
-![Gravação da Verificação](C:/Users/Danie/.gemini/antigravity/brain/45002cf1-81e6-4e46-9460-32760b517a6e/verify_baragao_site_1776363139603.webp)
+### B. Ativar Deploy Automático no GitHub
+No seu repositório `baragao1` no GitHub, vá em **Settings > Secrets and variables > Actions** e adicione:
+1. `VPS_IP`: `187.127.11.172`
+2. `VPS_USER`: `root`
+3. `VPS_PASSWORD`: `Magister2@#`
+
+### C. Primeiro Push do Código
+Rode este comando no terminal local dentro de `baragao-site`:
+```bash
+git push -u origin main
+```
+
+---
+> [!IMPORTANT]
+> O subdomínio `baragao.magistertech.com.br` já deve estar configurado no seu DNS apontando para o IP da VPS para que o SSL (HTTPS) seja ativado com sucesso.
