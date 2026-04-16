@@ -1,0 +1,51 @@
+name: Deploy Baragão Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: baragao-site/package-lock.json
+
+      - name: Install Dependencies
+        run: |
+          cd baragao-site
+          npm install
+
+      - name: Build Project
+        run: |
+          cd baragao-site
+          npm run build
+
+      - name: Transfer Files to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          source: "baragao-site/dist/*"
+          target: "/var/www/baragao.magistertech.com.br"
+          strip_components: 2
+
+      - name: Apply Server Config & Permissions
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          script: |
+            chown -R www-data:www-data /var/www/baragao.magistertech.com.br
+            chmod -R 755 /var/www/baragao.magistertech.com.br
+            nginx -t && systemctl reload nginx
