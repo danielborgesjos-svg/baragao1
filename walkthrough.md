@@ -1,47 +1,36 @@
-# Walkthrough Final - Grupo Baragão (baragao.magistertech.com.br)
+# Walkthrough: Refatoração do Site Grupo Baragão
 
-O site foi desenvolvido com estética **Premium/Criativa**, configurado para deploy em VPS e integrado com **GitHub Actions** para automação total.
+O projeto foi modernizado de ponta a ponta com o objetivo de gerar a **máxima performance, estabilidade e extrema estética profissional**.
 
-## 🎨 Resultado Visual
-- **Design:** Glassmorphism, tipografia Playfair Display/Outfit, e logos oficiais integradas.
-- **Funcionalidades:** Hero carrossel dinâmico, seções de unidades reformuladas e navegação cruzada.
+Convertemos o antigo repositório que usava **React + Vite** (que exige build complexo Node) em um projeto **Web Nativo de Alta Performance** composto puramente de `HTML5`, `CSS3` e `Vanilla JavaScript`.
 
-## 🚀 Infraestrutura de Deploy
-Implementamos um ecossistema de deploy em duas camadas:
+## O Que Foi Feito?
 
-### 1. Deploy Local (Safe Deploy)
-- **Arquivo:** [Deploy-Baragao.ps1](file:///c:/Users/Danie/OneDrive/Desktop/JARVIS-WORKSPACE/Deploy-Baragao.ps1)
-- **Status:** Testado. O upload do pacote `baragao_deploy.tar.gz` para a VPS foi concluído com sucesso.
+1. **Alteração de Domínio Base:**
+   - Domínio base alterado de `baragao.magistertech.com.br` para o domínio corporativo principal `grupobaragao.com.br`.
+   - Modificações aplicadas nos scripts `deploy.yml`, `baragao-nginx.conf` e `setup-baragao-vps.sh`.
 
-### 2. Automação CI/CD (GitHub Actions)
-- **Repositório:** `https://github.com/danielborgesjos-svg/baragao1.git`
-- **Workflow:** [.github/workflows/deploy.yml](file:///c:/Users/Danie/OneDrive/Desktop/JARVIS-WORKSPACE/baragao-site/.github/workflows/deploy.yml)
-- **O que faz:** Ao dar `git push`, o GitHub faz o build e joga os arquivos diretamente na pasta web da VPS, reiniciando o Nginx automaticamente.
+2. **Conversão React para HTML Estático:**
+   Todas as rotas e componentes foram extraídos para os respectivos arquivos estáticos:
+   - [index.html](file:///c:/Users/Danie/OneDrive/Desktop/JARVIS-WORKSPACE/baragao-site/index.html) (Antiga `Home`)
+   - [quem-somos.html](file:///c:/Users/Danie/OneDrive/Desktop/JARVIS-WORKSPACE/baragao-site/quem-somos.html) (Antiga `QuemSomos`)
+   - [veiculos.html](file:///c:/Users/Danie/OneDrive/Desktop/JARVIS-WORKSPACE/baragao-site/veiculos.html) (Antiga `Veiculos`)
+   - [shineray.html](file:///c:/Users/Danie/OneDrive/Desktop/JARVIS-WORKSPACE/baragao-site/shineray.html) (Antiga `Shineray`)
+   - [solucoes.html](file:///c:/Users/Danie/OneDrive/Desktop/JARVIS-WORKSPACE/baragao-site/solucoes.html) (Antigo `Consorcios` renomeado para a nova unidade de negócio)
 
-## 🛠️ Próximos Passos (Ação do Operador)
+3. **CSS e JS Nativo Extratificado:**
+   - `css/style.css` - Contém todo o design orgânico, responsividade e requintes "premium" como animações, hover effects, Glassmorphism, garantindo a estética _WOW_.
+   - `js/main.js` - Controla menu responsivo e navegação mobile.
+   - `js/carousel.js` - Executa a alta fidelidade e transições do _Hero Banner_ (Carrossel).
+   - *Lucide Icons* foram integrados via lib externa usando HTML Attributes (`data-lucide="icone"`).
 
-### A. Finalizar Instalação na VPS
-Como você já enviou o arquivo via PowerShell, rode estes comandos na VPS para ativar o domínio agora:
-```bash
-ssh root@187.127.11.172
-cd /opt
-tar -xzf baragao_deploy.tar.gz
-bash setup-baragao-vps.sh
-```
-*Use a senha que você me forneceu para o acesso.*
+4. **Regras de Deploy Nginx Atualizadas:**
+   O arquivo [baragao-nginx.conf](file:///c:/Users/Danie/OneDrive/Desktop/JARVIS-WORKSPACE/baragao-site/baragao-nginx.conf) foi modificado.
+   A regra `try_files $uri $uri.html $uri/ =404;` foi adotada. Ela esconde o `.html` perfeitamente sem precisar carregar JavaScript no cliente para roteamento.
 
-### B. Ativar Deploy Automático no GitHub
-No seu repositório `baragao1` no GitHub, vá em **Settings > Secrets and variables > Actions** e adicione:
-1. `VPS_IP`: `187.127.11.172`
-2. `VPS_USER`: `root`
-3. `VPS_PASSWORD`: `Magister2@#`
+5. **Limpeza Profunda de Código:**
+   Os arquivos pesados de desenvolvimento (`src/`, `node_modules`, `package.json`, `.jsx`) foram deletados para deixar apenas arquivos puros para envio hiper-rápido para a Hostinger VPS via GitHub Actions.
 
-### C. Primeiro Push do Código
-Rode este comando no terminal local dentro de `baragao-site`:
-```bash
-git push -u origin main
-```
-
----
-> [!IMPORTANT]
-> O subdomínio `baragao.magistertech.com.br` já deve estar configurado no seu DNS apontando para o IP da VPS para que o SSL (HTTPS) seja ativado com sucesso.
+> [!TIP]
+> **Vantagens Obtidas:**
+> Esta infraestrutura nativa permite o carregamento praticamente *instantâneo* nas páginas (menos tempo de parse JavaScript e Zero Framework Overhead), resultando em melhor nota nos exames do Google PageSpeed, crucial para o SEO do Grupo Baragão.

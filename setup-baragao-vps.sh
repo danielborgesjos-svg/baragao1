@@ -11,7 +11,7 @@ info()  { echo -e "${BLUE}[→]${NC} $1"; }
 warn()  { echo -e "${YELLOW}[!]${NC} $1"; }
 err()   { echo -e "${RED}[✗]${NC} $1"; exit 1; }
 
-DOMAIN="baragao.magistertech.com.br"
+DOMAIN="grupobaragao.com.br"
 WWW_ROOT="/var/www/$DOMAIN"
 
 echo ""
@@ -23,7 +23,8 @@ echo ""
 # 1. Criar diretório do site
 info "Configurando diretório em $WWW_ROOT..."
 mkdir -p "$WWW_ROOT"
-cp -r /opt/dist/* "$WWW_ROOT/"
+# Se executado manualmente, presume que os arquivos já estão na pasta
+cp -r ./* "$WWW_ROOT/" 2>/dev/null || true
 chown -R www-data:www-data "$WWW_ROOT"
 chmod -R 755 "$WWW_ROOT"
 log "Arquivos instalados em $WWW_ROOT"

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a2463" />
+  <title>Baragão Veículos - Grupo Baragão</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="container">
+      <a href="index.html" class="logo-area" aria-label="Grupo Baragão - Página Inicial">
+        <span class="logo-title">GRUPO <span>BARAGÃO</span></span>
+        <span class="logo-tagline">Aqui seu sonho se realiza</span>
+      </a>
+
+      <nav aria-label="Navegação principal">
+        <ul class="nav-menu">
+          <li><a href="quem-somos.html" class="nav-link">Quem Somos</a></li>
+          <li><a href="veiculos.html" class="nav-link active">Baragão Veículos</a></li>
+          <li><a href="shineray.html" class="nav-link">Shineray Tarumã</a></li>
+          <li><a href="solucoes.html" class="nav-link">Baragão Soluções e Negócios</a></li>
+        </ul>
+      </nav>
+
+      <a href="tel:+551800000000" class="contact-btn">
+        <i data-lucide="phone" style="width: 16px; height: 16px;"></i> Contato
+      </a>
+
+      <button id="mobile-toggle" class="mobile-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <i id="toggle-icon" data-lucide="menu" color="white" style="width: 24px; height: 24px;"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Menu mobile">
+    <ul>
+      <li><a href="quem-somos.html" class="nav-link">Quem Somos</a></li>
+      <li><a href="veiculos.html" class="nav-link active">Baragão Veículos</a></li>
+      <li><a href="shineray.html" class="nav-link">Shineray Tarumã</a></li>
+      <li><a href="solucoes.html" class="nav-link">Baragão Soluções e Negócios</a></li>
+      <li style="margin-top: 0.5rem; padding: 0 1rem;">
+        <a href="tel:+551800000000" class="btn-primary" style="width: 100%; justify-content: center; font-size: 0.9rem;">
+          <i data-lucide="phone" style="width: 16px; height: 16px;"></i> Ligar agora
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main style="margin-top: 80px;">
+    
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-badge">Baragão Veículos — Seminovos &amp; Novos</div>
+        <h1 class="page-hero-title fade-in">
+          Seu próximo carro com a confiança de quem entende de bons negócios
+        </h1>
+        <p class="page-hero-subtitle fade-in" style="animation-delay: 0.2s;">
+          Encontre o veículo ideal para o seu momento. Estoque rigorosamente selecionado, garantia de procedência e as melhores condições de financiamento do mercado.
+        </p>
+        <div style="margin-top: 2rem; animation-delay: 0.4s;" class="fade-in">
+          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: white; color: var(--primary); font-weight: 700;">
+            Fale com um Consultor <i data-lucide="chevron-right" style="width: 18px; height: 18px;"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proposta de Valor -->
+    <section class="section">
+      <div class="container">
+        <div class="grid-2" style="align-items: center; gap: 2rem;">
+          <div>
+            <p style="color: var(--accent); font-weight: 600; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem;">Por que a Baragão Veículos</p>
+            <h2 class="section-title">Comprar um carro não deve ser uma aposta</h2>
+            <div class="divider"></div>
+            <p style="line-height: 1.8; color: #555; margin-bottom: 1.5rem;">
+              Cada modelo passa por rigorosa avaliação mecânica e documental antes de entrar no nosso estoque. Nossa transparência garante que você faça um negócio seguro, com informação completa do início ao fim.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              
+              <div class="benefit-item">
+                <span class="benefit-icon"><i data-lucide="check-circle-2" style="width: 22px; height: 22px;"></i></span>
+                <div class="benefit-text">
+                  <strong>Estoque Selecionado</strong>
+                  <span>Veículos periciados, sem histórico de sinistro e com laudo cautelar aprovado antes de ir ao pátio.</span>
+                </div>
+              </div>
+              
+              <div class="benefit-item">
+                <span class="benefit-icon"><i data-lucide="shield-check" style="width: 22px; height: 22px;"></i></span>
+                <div class="benefit-text">
+                  <strong>Garantia Estendida</strong>
+                  <span>Condições flexíveis de garantia para o seu seminovo. Compre com segurança e tranquilidade.</span>
+                </div>
+              </div>
+
+              <div class="benefit-item">
+                <span class="benefit-icon"><i data-lucide="car" style="width: 22px; height: 22px;"></i></span>
+                <div class="benefit-text">
+                  <strong>Avaliação Justa do Seu Usado</strong>
+                  <span>Recebemos seu carro na troca com a melhor avaliação da região, sem complicação.</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1562141961-b5d1972b73c4?auto=format&fit=crop&q=80&w=1000" alt="Showroom Baragão Veículos" style="border-radius: 20px; box-shadow: var(--shadow-lg); width: 100%; object-fit: cover;" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section style="background: var(--primary); padding: 3rem 0;">
+      <div class="container">
+        <div class="grid-3" style="text-align: center;">
+          <div>
+            <div style="font-size: 2.5rem; font-family: 'Playfair Display', serif; font-weight: 800; color: var(--accent); line-height: 1;">200+</div>
+            <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.5rem; font-weight: 600;">Veículos em estoque</div>
+          </div>
+          <div>
+            <div style="font-size: 2.5rem; font-family: 'Playfair Display', serif; font-weight: 800; color: var(--accent); line-height: 1;">98%</div>
+            <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.5rem; font-weight: 600;">Clientes satisfeitos</div>
+          </div>
+          <div>
+            <div style="font-size: 2.5rem; font-family: 'Playfair Display', serif; font-weight: 800; color: var(--accent); line-height: 1;">10+</div>
+            <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.5rem; font-weight: 600;">Anos de experiência</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross Navigation -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 3rem;">
+          <h2 class="section-title">Conheça também nossas outras soluções</h2>
+          <div class="divider centered"></div>
+        </div>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+          
+          <div class="cross-link-card" onclick="window.location.href='shineray.html'" style="flex: 1; min-width: 280px; max-width: 380px;">
+            <div><img src="https://i.imgur.com/Kl1aTWj.png" alt="Shineray Tarumã" style="height: 36px; object-fit: contain;" /></div>
+            <h3 class="cross-link-title">Shineray Tarumã</h3>
+            <p class="cross-link-desc">Motos 0km com economia e agilidade para o seu dia a dia. Concessionária oficial.</p>
+            <span class="unit-link">Ver mais <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></span>
+          </div>
+
+          <div class="cross-link-card" onclick="window.location.href='solucoes.html'" style="flex: 1; min-width: 280px; max-width: 380px;">
+            <div style="height: 36px; display: flex; align-items: center;">
+              <span style="font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1rem; color: var(--primary);">BARAGÃO</span>
+              <span style="font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1rem; color: var(--accent); margin-left: 0.4rem;">SOLUÇÕES</span>
+            </div>
+            <h3 class="cross-link-title">Baragão Soluções e Negócios</h3>
+            <p class="cross-link-desc">Comece hoje a planejar a troca do seu carro sem pagar juros. Assessoria completa.</p>
+            <span class="unit-link">Ver mais <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo-title">GRUPO <span>BARAGÃO</span></div>
+          <span class="footer-tagline-sm">Aqui seu sonho se realiza</span>
+          <p class="footer-desc">Somos um grupo com mais de uma unidade dedicada a transformar seus sonhos em conquistas concretas. Veículos, motos e consórcios.</p>
+        </div>
+        <div>
+          <h3 class="footer-col-title">Unidades</h3>
+          <ul class="footer-links">
+            <li><a href="veiculos.html"><i data-lucide="chevron-right" style="width:14px;height:14px;"></i> Baragão Veículos</a></li>
+            <li><a href="shineray.html"><i data-lucide="chevron-right" style="width:14px;height:14px;"></i> Shineray Tarumã</a></li>
+            <li><a href="solucoes.html"><i data-lucide="chevron-right" style="width:14px;height:14px;"></i> Baragão Soluções e Negócios</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col-title">Institucional</h3>
+          <ul class="footer-links">
+            <li><a href="quem-somos.html"><i data-lucide="chevron-right" style="width:14px;height:14px;"></i> Quem Somos</a></li>
+            <li><a href="#"><i data-lucide="chevron-right" style="width:14px;height:14px;"></i> Blog (em breve)</a></li>
+            <li><a href="tel:+551800000000"><i data-lucide="chevron-right" style="width:14px;height:14px;"></i> Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col-title">Redes Sociais</h3>
+          <div class="footer-social">
+            <a href="https://instagram.com/grupobaragao" target="_blank" rel="noopener noreferrer"><i data-lucide="instagram" style="width:20px;height:20px;"></i> @grupobaragao</a>
+            <a href="https://facebook.com/grupobaragao" target="_blank" rel="noopener noreferrer"><i data-lucide="facebook" style="width:20px;height:20px;"></i> Grupo Baragão</a>
+            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer"><i data-lucide="message-circle" style="width:20px;height:20px;"></i> WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Grupo Baragão. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20do%20Grupo%20Baragão" target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+    <i data-lucide="message-circle" style="width: 28px; height: 28px; color: white;"></i>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
